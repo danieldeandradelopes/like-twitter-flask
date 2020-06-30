@@ -18,3 +18,22 @@ class User(db.Model):
     def __repr__(self):
         return "<User %r>" % self.username
 
+class Post(db.Model):
+    __tablename__ = "posts"
+
+    id = db.Column(db.Integer, primary_key=True)
+    content = db.Column(db.Text)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+# creating relationship between tables (posts and users)
+    user = db.relationship('User', foreign_keys=user_id)
+
+    def __init_(self, content, user_id):
+        self.content = content
+        self.user_id = user_id
+
+    def __repr_(self):
+        return "<Post %r>" & self.id
+
+
+        
