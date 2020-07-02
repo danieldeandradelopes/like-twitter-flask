@@ -20,6 +20,8 @@ manager.add_command('db', MigrateCommand)
 
 
 login_manager =  LoginManager(app)
+
+# USER LOADER => TO LOGIN AND LOGOU 
 @login_manager.user_loader
 def load_user(user_id):
     return User.get(user_id)
