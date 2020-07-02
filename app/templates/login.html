@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ super() }} - Home {% endblock %}
+
+{% block content %}
+<form action="" method="POST">
+    {{ form.csrf_token }}
+    <div class="form-group">
+        <h2>Login</h2>
+        <label for="exampleInputEmail1">Email address</label>
+        {{form.username(class="form-control", placeholder="username" )}}
+        <small id="emailHelp" class="form-text text-muted">Here you enter with your username.</small>
+
+        {% if form.errors.username %}
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                {% for e in form.errors.name %}
+                <li> {{ e }} </li>
+                {% endfor %}
+            </ul>
+            {{ form.errors.username }}
+        </div>
+        {% endif %}
+
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        {{form.password(class="form-control", placeholder="password" )}}
+
+        {% if form.errors.password %}
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                {% for e in form.errors.password %}
+                <li> {{ e }} </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+    <div class="form-group form-check">
+        <label class="form-check-label" for="exampleCheck1">
+            {{ form.remember_me(class="form-check-input") }} Remember me
+        </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

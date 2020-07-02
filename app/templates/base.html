@@ -18,7 +18,7 @@
 <body>
 
     <div class="container">
-        <header>
+        <header style="margin-bottom: 100px;">
             <!-- Fixed navbar -->
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
                 <a class="navbar-brand" href="#">Fixed navbar</a>
@@ -44,13 +44,15 @@
                     </form>
                 </div>
             </nav>
+        </header>
 
-            {% block content %}
-            {% endblock %}
 
-            <footer class="footer">
-                <p>&copy; 2016 Company, Inc.</p>
-            </footer>
+        {% block content %}
+        {% endblock %}
+
+        <footer class="footer">
+            <p>&copy; 2016 Company, Inc.</p>
+        </footer>
 
     </div> <!-- /container -->
 
